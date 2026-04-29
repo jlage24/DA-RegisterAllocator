@@ -1,6 +1,11 @@
-cmake_minimum_required(VERSION 4.2)
-project(DA2026_PRJ2)
+cmake_minimum_required(VERSION 3.10)
+project(RegisterAllocator)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_executable(DA2026_PRJ2 src/main.cpp)
+include_directories(include)
+
+file(GLOB SOURCES "src/*.cpp")
+
+add_executable(regalloc ${SOURCES})
