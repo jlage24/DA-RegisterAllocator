@@ -2,10 +2,18 @@ cmake_minimum_required(VERSION 4.2)
 project(DA2026_PRJ2)
 
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_executable(DA2026_PRJ2 src/main.cpp
-        include/Graph.h
-        src/graph/LiveRange.h
-        src/graph/Web.h
-        src/graph/InterferenceGraph.h
-        src/graph/InterferenceGraph.cpp)
+# Include directories
+include_directories(include)
+include_directories(src)
+
+# Collect all source files
+file(GLOB_RECURSE SOURCES
+        "src/*.cpp"
+)
+
+add_executable(regalloc ${SOURCES})
+
+# Optional: enable warnings
+target_compile_options(regalloc PRIVATE -Wall -Wextra)
