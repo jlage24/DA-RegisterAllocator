@@ -14,7 +14,7 @@ bool WebBuilder::rangesOverlap(const LiveRange &ra, const LiveRange &rb) {
     for (int line : linesA)
         if (linesB.count(line)) return true;
 
-    // Special case: ra ends at X- and rb starts at X+ ---
+    // Special case: ra ends at X- and rb starts at X+
     if (!ra.points.empty() && !rb.points.empty()) {
         // ra ends X-, rb starts X+
         if (ra.points.back().line   == rb.points.front().line &&
