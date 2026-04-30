@@ -9,11 +9,9 @@ include_directories(include)
 include_directories(src)
 
 # Collect all source files
-file(GLOB_RECURSE SOURCES
-        "src/*.cpp"
-)
+file(GLOB_RECURSE SOURCES "src/*.cpp")
 
 add_executable(regalloc ${SOURCES})
 
-# Optional: enable warnings
+# Enable warnings
 target_compile_options(regalloc PRIVATE -Wall -Wextra)
