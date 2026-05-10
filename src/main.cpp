@@ -1,12 +1,16 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <fstream>
+
 #include "parser/Parser.h"
 #include "graph/LiveRange.h"
-
-// Forward declarations (to be implemented)
-// #include "allocation/AllocationEngine.h"
-// #include "utils/OutputWriter.h"
+#include "graph/WebBuilder.h"
+#include "graph/InterferenceGraphBuilder.h"
+#include "allocation/RegisterAllocator.h"
+#include "allocation/SpillAllocator.h"
+#include "allocation/SplitAllocator.h"
+#include "utils/OutputWriter.h"
 
 static void printBanner() {
     std::cout << "=========================================\n";
@@ -28,29 +32,33 @@ static void printMenu() {
     std::cout << "Option: ";
 }
 
-/**
- * @brief Batch mode: myProg -b ranges.txt registers.txt allocation.txt
- */
+static InterferenceGraph runAllocation(std::vector<Web> &webs,
+                                        const RegisterConfig &config) {
+    auto ig = InterferenceGraphBuilder::build(webs);
+    if (config.algorithm == "basic") {
+        RegisterAllocator::allocateBasic(ig, config.numRegisters);
+    } else if (config.algorithm == "spilling") {
+        SpillAllocator::allocate(ig, config.numRegisters, config.algorithmParam);
+    } else if (config.algorithm == "splitting") {
+        ig = SplitAllocator::allocate(webs, config.numRegisters, config.algorithmParam);
+    } else if (config.algorithm == "free") {
+        std::cout << "[info] 'free' algorithm not yet implemented, using basic.\n";
+        RegisterAllocator::allocateBasic(ig, config.numRegisters);
+    } else {
+        throw std::runtime_error("Unknown algorithm: " + config.algorithm);
+    }
+    return ig;
+}
+
 static int runBatch(const std::string &rangesFile,
                     const std::string &registersFile,
                     const std::string &outputFile) {
     try {
-        std::cout << "[batch] Parsing live ranges from: " << rangesFile << "\n";
         auto ranges = Parser::parseLiveRanges(rangesFile);
-        std::cout << "[batch] Loaded " << ranges.size() << " live range(s).\n";
-
-        std::cout << "[batch] Parsing register config from: " << registersFile << "\n";
         auto config = Parser::parseRegisters(registersFile);
-        std::cout << "[batch] Registers: " << config.numRegisters
-                  << "  Algorithm: " << config.algorithm;
-        if (config.algorithmParam > 0)
-            std::cout << " (param=" << config.algorithmParam << ")";
-        std::cout << "\n";
-
-        // TODO: build webs, build interference graph, run allocation, write output
-        std::cout << "[batch] Output will be written to: " << outputFile << "\n";
-        std::cout << "[batch] (Allocation engine not yet implemented)\n";
-
+        auto webs   = WebBuilder::buildWebs(ranges);
+        auto ig     = runAllocation(webs, config);
+        OutputWriter::writeToFile(ig, outputFile);
         return 0;
     } catch (const std::exception &e) {
         std::cerr << "[ERROR] " << e.what() << "\n";
@@ -58,105 +66,77 @@ static int runBatch(const std::string &rangesFile,
     }
 }
 
-/**
- * @brief Interactive menu mode.
- */
 static void runInteractive() {
     printBanner();
-
     std::vector<LiveRange> ranges;
     RegisterConfig config;
-    bool rangesLoaded = false;
-    bool configLoaded = false;
+    std::vector<Web> webs;
+    InterferenceGraph ig;
+    bool rangesLoaded=false, configLoaded=false, websBuilt=false, graphBuilt=false, allocated=false;
 
     int choice = -1;
     while (choice != 0) {
         printMenu();
         std::cin >> choice;
         std::cin.ignore();
-
         switch (choice) {
             case 1: {
-                std::string filename;
-                std::cout << "Live ranges file path: ";
-                std::getline(std::cin, filename);
-                try {
-                    ranges = Parser::parseLiveRanges(filename);
-                    rangesLoaded = true;
-                    std::cout << "Loaded " << ranges.size() << " live range(s).\n";
-                    for (auto &r : ranges) {
-                        std::cout << "  " << r.varName << ": ";
-                        for (auto &p : r.points) {
-                            std::cout << p.line;
-                            if (p.marker != ' ') std::cout << p.marker;
-                            std::cout << " ";
-                        }
-                        std::cout << "\n";
-                    }
-                } catch (const std::exception &e) {
-                    std::cerr << "Error: " << e.what() << "\n";
-                }
-                break;
+                std::string f; std::cout << "Live ranges file path: "; std::getline(std::cin, f);
+                try { ranges=Parser::parseLiveRanges(f); rangesLoaded=true; websBuilt=graphBuilt=allocated=false;
+                      std::cout << "Loaded " << ranges.size() << " range(s).\n";
+                } catch(const std::exception &e){std::cerr<<"Error: "<<e.what()<<"\n";} break;
             }
             case 2: {
-                std::string filename;
-                std::cout << "Registers config file path: ";
-                std::getline(std::cin, filename);
-                try {
-                    config = Parser::parseRegisters(filename);
-                    configLoaded = true;
-                    std::cout << "Registers: " << config.numRegisters << "\n";
-                    std::cout << "Algorithm: " << config.algorithm;
-                    if (config.algorithmParam > 0)
-                        std::cout << " (K=" << config.algorithmParam << ")";
-                    std::cout << "\n";
-                } catch (const std::exception &e) {
-                    std::cerr << "Error: " << e.what() << "\n";
-                }
-                break;
+                std::string f; std::cout << "Registers config file path: "; std::getline(std::cin, f);
+                try { config=Parser::parseRegisters(f); configLoaded=true;
+                      std::cout<<"Registers: "<<config.numRegisters<<"  Algorithm: "<<config.algorithm;
+                      if(config.algorithmParam>0) std::cout<<" (K="<<config.algorithmParam<<")";
+                      std::cout<<"\n";
+                } catch(const std::exception &e){std::cerr<<"Error: "<<e.what()<<"\n";} break;
             }
-            case 3:
-                if (!rangesLoaded) { std::cerr << "Load live ranges first.\n"; break; }
-                std::cout << "[TODO] Build webs -> coming soon.\n";
-                break;
-            case 4:
-                std::cout << "[TODO] Build interference graph -> coming soon.\n";
-                break;
-            case 5:
-                if (!rangesLoaded || !configLoaded) {
-                    std::cerr << "Load both files first.\n"; break;
-                }
-                std::cout << "[TODO] Run allocation -> coming soon.\n";
-                break;
-            case 6:
-                std::cout << "[TODO] Show interference graph -> coming soon.\n";
-                break;
-            case 7:
-                std::cout << "[TODO] Export DOT file -> coming soon.\n";
-                break;
-            case 8:
-                std::cout << "[TODO] Save output -> coming soon.\n";
-                break;
-            case 0:
-                std::cout << "Goodbye!\n";
-                break;
-            default:
-                std::cerr << "Invalid option.\n";
+            case 3: {
+                if(!rangesLoaded){std::cerr<<"Load live ranges first.\n";break;}
+                webs=WebBuilder::buildWebs(ranges); websBuilt=true; graphBuilt=allocated=false;
+                std::cout<<"Built "<<webs.size()<<" web(s).\n";
+                for(auto &w:webs){std::cout<<"  web"<<w.webId<<" ["<<w.varName<<"]: ";
+                    for(int l:w.allLines()) std::cout<<l<<" "; std::cout<<"\n";} break;
+            }
+            case 4: {
+                if(!websBuilt){std::cerr<<"Build webs first.\n";break;}
+                ig=InterferenceGraphBuilder::build(webs); graphBuilt=true; allocated=false;
+                std::cout<<"Interference graph built.\n"; ig.print(); break;
+            }
+            case 5: {
+                if(!graphBuilt){std::cerr<<"Build interference graph first.\n";break;}
+                if(!configLoaded){std::cerr<<"Load registers config first.\n";break;}
+                try { ig=runAllocation(webs,config); allocated=true;
+                      std::cout<<"\n--- Allocation Result ---\n"; OutputWriter::printToConsole(ig);
+                } catch(const std::exception &e){std::cerr<<"Error: "<<e.what()<<"\n";} break;
+            }
+            case 6: {
+                if(!graphBuilt){std::cerr<<"Build interference graph first.\n";break;}
+                ig.print(); break;
+            }
+            case 7: {
+                if(!graphBuilt){std::cerr<<"Build interference graph first.\n";break;}
+                std::string f; std::cout<<"DOT filename (no .gv): "; std::getline(std::cin,f);
+                ig.emitUndirectedDOT(f); std::cout<<"Written to "<<f<<".gv\n"; break;
+            }
+            case 8: {
+                if(!allocated){std::cerr<<"Run allocation first.\n";break;}
+                std::string f; std::cout<<"Output file path: "; std::getline(std::cin,f);
+                try{OutputWriter::writeToFile(ig,f);}catch(const std::exception &e){std::cerr<<"Error: "<<e.what()<<"\n";} break;
+            }
+            case 0: std::cout<<"Goodbye!\n"; break;
+            default: std::cerr<<"Invalid option.\n";
         }
     }
 }
 
 int main(int argc, char *argv[]) {
-    // Batch mode: ./regalloc -b ranges.txt registers.txt output.txt
-    if (argc == 5 && std::string(argv[1]) == "-b") {
-        return runBatch(argv[2], argv[3], argv[4]);
-    }
-
-    if (argc > 1 && std::string(argv[1]) != "-b") {
-        std::cerr << "Usage: " << argv[0] << " [-b ranges.txt registers.txt output.txt]\n";
-        return 1;
-    }
-
+    if(argc==5 && std::string(argv[1])=="-b")
+        return runBatch(argv[2],argv[3],argv[4]);
+    if(argc>1){std::cerr<<"Usage: "<<argv[0]<<" [-b ranges.txt registers.txt output.txt]\n";return 1;}
     runInteractive();
     return 0;
 }
