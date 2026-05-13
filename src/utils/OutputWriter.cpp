@@ -7,17 +7,14 @@
 #include <sstream>
 
 std::string OutputWriter::formatWeb(const Web &web) {
-    // Collect all points across all ranges, sorted by line
     std::map<int, char> lineMarkers;
-    for (auto &r : web.ranges) {
+    for (auto &r : web.ranges)
         for (auto &p : r.points) {
-            // If a line appears in multiple ranges, prefer '+' and '-' over ' '
             if (lineMarkers.find(p.line) == lineMarkers.end())
                 lineMarkers[p.line] = p.marker;
             else if (p.marker != ' ')
                 lineMarkers[p.line] = p.marker;
         }
-    }
 
     std::ostringstream oss;
     bool first = true;
@@ -30,15 +27,27 @@ std::string OutputWriter::formatWeb(const Web &web) {
     return oss.str();
 }
 
-// Core output logic
 void OutputWriter::write(const InterferenceGraph &ig, std::ostream &out) {
-    // Webs
+    // --- Section 1: webs ---
     out << "webs: " << ig.webs.size() << "\n";
     for (auto &[id, web] : ig.webs)
         out << "web" << id << ": " << formatWeb(web) << "\n";
 
-    // Register assignments
-    // Find max color used (to report number of registers actually used)
+    // Check if all webs are spilled (infeasible allocation)
+    bool allSpilled = true;
+    for (auto &[id, web] : ig.webs)
+        if (!web.isSpilled()) { allSpilled = false; break; }
+
+    if (allSpilled && !ig.webs.empty()) {
+        // Infeasible — output registers: 0 and warn on console
+        std::cerr << "WARNING: Register allocation not possible with the provided number of registers. All webs assigned to memory.\n";
+        out << "registers: 0\n";
+        for (auto &[id, web] : ig.webs)
+            out << "M: web" << id << "\n";
+        return;
+    }
+
+    // Find max color used
     int maxColor = -1;
     for (auto &[id, web] : ig.webs)
         if (web.color >= 0 && web.color > maxColor)
@@ -64,7 +73,6 @@ void OutputWriter::write(const InterferenceGraph &ig, std::ostream &out) {
         out << "M: web" << wid << "\n";
 }
 
-// Public interface
 void OutputWriter::writeToFile(const InterferenceGraph &ig,
                                 const std::string &filename) {
     std::ofstream f(filename);

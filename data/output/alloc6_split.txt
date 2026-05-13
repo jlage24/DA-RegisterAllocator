@@ -1,0 +1,14 @@
+webs: 6
+web1: 2+,3,4,5-
+web2: 4+,5,6,7-
+web3: 6+,7,8,9-
+web4: 8+,9,10,11-
+web5: 1+,2-
+web6: 3+,10-
+registers: 1
+r0: web5
+r0: web6
+M: web1
+M: web2
+M: web3
+M: web4

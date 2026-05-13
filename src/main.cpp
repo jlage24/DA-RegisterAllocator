@@ -10,6 +10,7 @@
 #include "allocation/RegisterAllocator.h"
 #include "allocation/SpillAllocator.h"
 #include "allocation/SplitAllocator.h"
+#include "allocation/FreeAllocator.h"
 #include "utils/OutputWriter.h"
 
 static void printBanner() {
@@ -42,8 +43,7 @@ static InterferenceGraph runAllocation(std::vector<Web> &webs,
     } else if (config.algorithm == "splitting") {
         ig = SplitAllocator::allocate(webs, config.numRegisters, config.algorithmParam);
     } else if (config.algorithm == "free") {
-        std::cout << "[info] 'free' algorithm not yet implemented, using basic.\n";
-        RegisterAllocator::allocateBasic(ig, config.numRegisters);
+        ig = FreeAllocator::allocate(webs, config.numRegisters);
     } else {
         throw std::runtime_error("Unknown algorithm: " + config.algorithm);
     }

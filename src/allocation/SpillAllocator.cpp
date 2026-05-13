@@ -1,21 +1,17 @@
 #include "SpillAllocator.h"
 #include "RegisterAllocator.h"
+#include "../graph/InterferenceGraphBuilder.h"
 #include <algorithm>
 #include <iostream>
 #include <vector>
 
-// ---------------------------------------------------------------------------
-// preSpill — mark the K webs with most lines as COLOR_SPILLED
-// ---------------------------------------------------------------------------
+// Mark the top 'numSpills' webs by line count as COLOR_SPILLED
 void SpillAllocator::preSpill(InterferenceGraph &ig, int numSpills) {
-    // Build a list of (webId, lineCount) for all active webs
-    std::vector<std::pair<int,int>> candidates; // (webId, lineCount)
+    std::vector<std::pair<int,int>> candidates;
     for (auto &[id, web] : ig.webs) {
         if (!web.active) continue;
-        int lineCount = static_cast<int>(web.allLines().size());
-        candidates.push_back({id, lineCount});
+        candidates.push_back({id, (int)web.allLines().size()});
     }
-
     // Sort descending by line count (heuristic: most lines = spill first)
     std::sort(candidates.begin(), candidates.end(),
               [](const auto &a, const auto &b){ return a.second > b.second; });
@@ -33,24 +29,35 @@ void SpillAllocator::preSpill(InterferenceGraph &ig, int numSpills) {
     }
 }
 
-// ---------------------------------------------------------------------------
-// allocate — pre-spill K webs, then run basic greedy coloring on the rest
-// ---------------------------------------------------------------------------
+// Try spilling 1, 2, ... up to numSpills until graph is colorable
 void SpillAllocator::allocate(InterferenceGraph &ig,
                                int numRegisters, int numSpills) {
-    int totalWebs = static_cast<int>(ig.webs.size());
+    int totalWebs = (int)ig.webs.size();
+    numSpills = std::min(numSpills, totalWebs - 1);
 
-    // Clamp: cannot spill more webs than we have
-    if (numSpills >= totalWebs) {
-        std::cerr << "[spill] Warning: numSpills (" << numSpills
-                  << ") >= total webs (" << totalWebs
-                  << "). Clamping to " << totalWebs - 1 << ".\n";
-        numSpills = totalWebs - 1;
+    for (int k = 1; k <= numSpills; k++) {
+        // Reset all webs to active/uncolored before each attempt
+        for (auto &[id, web] : ig.webs) {
+            web.active = true;
+            web.color  = COLOR_NONE;
+        }
+
+        std::cout << "[spill] Trying with k=" << k << " pre-spill(s)...\n";
+        preSpill(ig, k);
+
+        // Run basic greedy coloring on remaining active webs
+        RegisterAllocator::allocateBasic(ig, numRegisters);
+
+        // Check if any forced spills happened during coloring
+        bool forcedSpill = false;
+        for (auto &[id, web] : ig.webs)
+            if (web.color == COLOR_SPILLED && web.active) { forcedSpill = true; break; }
+
+        if (!forcedSpill) {
+            std::cout << "[spill] Success with k=" << k << " pre-spill(s).\n";
+            return;
+        }
     }
 
-    // Step 1: intentionally spill K webs
-    preSpill(ig, numSpills);
-
-    // Step 2: run basic greedy coloring on the remaining active webs
-    RegisterAllocator::allocateBasic(ig, numRegisters);
+    std::cout << "[spill] Could not fully allocate with up to " << numSpills << " spill(s).\n";
 }

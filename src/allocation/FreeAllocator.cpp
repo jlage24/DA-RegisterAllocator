@@ -4,30 +4,28 @@
 #include <algorithm>
 #include <iostream>
 #include <map>
+#include <set>
 #include <climits>
 
+// Highest-degree active web with degree >= N
 int FreeAllocator::findMostCongestedWeb(const InterferenceGraph &ig,
                                          int numRegisters) {
-    int best = -1;
-    int bestDeg = -1;
+    int best = -1, bestDeg = -1;
     for (auto &[id, web] : ig.webs) {
         if (!web.active) continue;
         int deg = ig.degree(id);
-        if (deg >= numRegisters && deg > bestDeg) {
-            bestDeg = deg;
-            best = id;
-        }
+        if (deg >= numRegisters && deg > bestDeg) { bestDeg = deg; best = id; }
     }
     return best;
 }
 
+// Split one web into two halves, update webs vector
 std::pair<int,int> FreeAllocator::splitWeb(std::vector<Web> &webs,
                                             int webId, int nextId) {
     // Find the web to split
     Web *target = nullptr;
     for (auto &w : webs)
         if (w.webId == webId) { target = &w; break; }
-
     if (!target) return {-1, -1};
 
     // Collect all line points sorted by line
@@ -39,19 +37,16 @@ std::pair<int,int> FreeAllocator::splitWeb(std::vector<Web> &webs,
         }
 
     std::vector<std::pair<int,char>> sorted(lineMarkers.begin(), lineMarkers.end());
+    if (sorted.size() <= 1) return {-1, -1};  // unsplittable
+
     size_t mid = sorted.size() / 2;
 
-    // Cannot split a single-line web, therefore spill it directly
-    if (sorted.size() <= 1) return {-1, -1};
-
-    // Build first half
     LiveRange lrA; lrA.varName = target->varName;
     for (size_t i = 0; i < mid; i++)
         lrA.points.push_back({sorted[i].first, sorted[i].second});
     if (!lrA.points.empty() && lrA.points.back().marker == ' ')
         lrA.points.back().marker = '-';
 
-    // Build second half
     LiveRange lrB; lrB.varName = target->varName;
     for (size_t i = mid; i < sorted.size(); i++)
         lrB.points.push_back({sorted[i].first, sorted[i].second});
@@ -59,22 +54,18 @@ std::pair<int,int> FreeAllocator::splitWeb(std::vector<Web> &webs,
         lrB.points.front().marker = '+';
 
     int idA = nextId, idB = nextId + 1;
-
     Web webA(idA, target->varName); webA.ranges = {lrA};
     Web webB(idB, target->varName); webB.ranges = {lrB};
 
-    std::cout << "[free] Split web" << webId
-              << " (" << target->varName << ")"
+    std::cout << "[free] Split web" << webId << " (" << target->varName << ")"
               << " → web" << idA << " [" << lrA.firstLine() << ".." << lrA.lastLine() << "]"
               << " + web" << idB << " [" << lrB.firstLine() << ".." << lrB.lastLine() << "]\n";
 
     // Remove original, add two halves
     webs.erase(std::remove_if(webs.begin(), webs.end(),
-                              [webId](const Web &w){ return w.webId == webId; }),
-               webs.end());
+               [webId](const Web &w){ return w.webId == webId; }), webs.end());
     webs.push_back(webA);
     webs.push_back(webB);
-
     return {idA, idB};
 }
 
@@ -83,19 +74,25 @@ InterferenceGraph FreeAllocator::allocate(std::vector<Web> &webs,
     int nextId = 0;
     for (auto &w : webs) nextId = std::max(nextId, w.webId + 1);
 
-    // Safety limit: at most 2*W iterations to prevent infinite loops
-    int maxIter = static_cast<int>(webs.size()) * 2;
-    int iter = 0;
+    // Track which webs we already tried splitting (avoid infinite loops)
+    std::set<int> triedSplit;
 
-    while (iter++ < maxIter) {
-        // Rebuild graph from current webs
+    // At most W rounds (one intervention per original web)
+    int maxRounds = (int)webs.size() * 3;
+
+    for (int round = 0; round < maxRounds; round++) {
         InterferenceGraph ig = InterferenceGraphBuilder::build(webs);
 
-        // Find the most congested web (degree >= N)
-        int congested = findMostCongestedWeb(ig, numRegisters);
+        // Pre-mark webs already spilled in our vector
+        for (auto &w : webs)
+            if (w.color == COLOR_SPILLED && ig.webs.count(w.webId)) {
+                ig.webs.at(w.webId).color  = COLOR_SPILLED;
+                ig.webs.at(w.webId).active = false;
+            }
 
-        // No congested webs — graph is colorable as-is
+        int congested = findMostCongestedWeb(ig, numRegisters);
         if (congested == -1) {
+            // All remaining active webs are colorable
             std::cout << "[free] Graph colorable — running greedy coloring.\n";
             RegisterAllocator::allocateBasic(ig, numRegisters);
             return ig;
@@ -103,55 +100,50 @@ InterferenceGraph FreeAllocator::allocate(std::vector<Web> &webs,
 
         std::cout << "[free] web" << congested
                   << " (" << ig.webs.at(congested).varName << ")"
-                  << " has degree=" << ig.degree(congested)
-                  << " >= N=" << numRegisters << "\n";
+                  << " degree=" << ig.degree(congested) << " >= N=" << numRegisters << "\n";
 
-        // Try to split it
+        // If we already tried splitting this web, spill it instead
+        if (triedSplit.count(congested)) {
+            std::cout << "[free] Already tried split on web" << congested << " — spilling.\n";
+            for (auto &w : webs)
+                if (w.webId == congested) { w.color = COLOR_SPILLED; break; }
+            continue;
+        }
+
+        // Try to split
         auto [idA, idB] = splitWeb(webs, congested, nextId);
 
         if (idA == -1) {
-            // Cannot split (single-line web) — spill it directly
-            std::cout << "[free] Cannot split web" << congested
-                      << " — spilling instead.\n";
-            // Mark as spilled in the webs vector
+            // Unsplittable (1 line) — spill directly
+            std::cout << "[free] web" << congested << " unsplittable — spilling.\n";
             for (auto &w : webs)
                 if (w.webId == congested) { w.color = COLOR_SPILLED; break; }
         } else {
             nextId += 2;
+            triedSplit.insert(congested);
 
-            // Check if the split helped — rebuild and see if halves are colorable
-            InterferenceGraph igNew = InterferenceGraphBuilder::build(webs);
-            int degA = igNew.degree(idA);
-            int degB = igNew.degree(idB);
+            // Check if split actually helped (at least one half has degree < N)
+            InterferenceGraph igCheck = InterferenceGraphBuilder::build(webs);
+            bool helpedA = igCheck.degree(idA) < numRegisters;
+            bool helpedB = igCheck.degree(idB) < numRegisters;
 
-            // If a half still has degree >= N and is not splittable further,
-            // spill it
-            for (int halfId : {idA, idB}) {
-                if (igNew.degree(halfId) >= numRegisters) {
-                    // Check if it has more than 1 line (can be split again next iter)
-                    auto it = std::find_if(webs.begin(), webs.end(),
-                                           [halfId](const Web &w){ return w.webId == halfId; });
-                    if (it != webs.end() && it->allLines().size() <= 1) {
-                        std::cout << "[free] web" << halfId << " unsplittable — spilling.\n";
-                        it->color = COLOR_SPILLED;
-                    }
-                    // Otherwise: leave it, since next iteration will try to split it again
-                }
+            if (!helpedA && !helpedB) {
+                // Split didn't help — undo by spilling both halves
+                std::cout << "[free] Split didn't reduce interference — spilling halves.\n";
+                for (auto &w : webs)
+                    if (w.webId == idA || w.webId == idB) w.color = COLOR_SPILLED;
             }
-            (void)degA; (void)degB; // used implicitly above
         }
     }
 
-    // Fallback: run greedy coloring on whatever remains
-    std::cout << "[free] Max iterations reached — running final greedy coloring.\n";
+    // Final fallback
+    std::cout << "[free] Final greedy coloring.\n";
     InterferenceGraph ig = InterferenceGraphBuilder::build(webs);
-
-    // Pre-mark spilled webs from our webs vector
     for (auto &w : webs)
-        if (w.color == COLOR_SPILLED && ig.webs.count(w.webId))
-            ig.webs.at(w.webId).color  = COLOR_SPILLED,
+        if (w.color == COLOR_SPILLED && ig.webs.count(w.webId)) {
+            ig.webs.at(w.webId).color  = COLOR_SPILLED;
             ig.webs.at(w.webId).active = false;
-
+        }
     RegisterAllocator::allocateBasic(ig, numRegisters);
     return ig;
 }
