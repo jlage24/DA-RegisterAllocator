@@ -1,0 +1,5 @@
+<map id="Parser::parseRegisters" name="Parser::parseRegisters">
+<area shape="rect" id="Node000001" title="Parses a register configuration file." alt="" coords="5,5,172,31"/>
+<area shape="rect" id="Node000002" href="$classParser.html#a0232860b9febbaa3f08a9ff939fc73f1" title="Strips leading/trailing whitespace from a string." alt="" coords="220,5,317,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,15,206,15,206,21,172,21"/>
+</map>

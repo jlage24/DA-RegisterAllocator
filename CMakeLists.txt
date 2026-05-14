@@ -23,3 +23,58 @@ add_executable(regalloc
 
 # Enable warnings
 target_compile_options(regalloc PRIVATE -Wall -Wextra)
+
+# --- Test: WebBuilder ---
+add_executable(test_webbuilder
+        tests/TestWebBuilder.cpp
+        src/parser/Parser.cpp
+        src/graph/WebBuilder.cpp
+        src/graph/InterferenceGraph.cpp
+)
+
+# --- Test: InterferenceGraph ---
+add_executable(test_interference
+        tests/TestInterference.cpp
+        src/parser/Parser.cpp
+        src/graph/WebBuilder.cpp
+        src/graph/InterferenceGraph.cpp
+        src/graph/InterferenceGraphBuilder.cpp
+)
+
+# --- Test: Basic Allocation ---
+add_executable(test_allocation
+        tests/TestAllocation.cpp
+        src/parser/Parser.cpp
+        src/graph/WebBuilder.cpp
+        src/graph/InterferenceGraph.cpp
+        src/graph/InterferenceGraphBuilder.cpp
+        src/allocation/RegisterAllocator.cpp
+        src/utils/OutputWriter.cpp
+)
+
+# --- Test: Spilling + Splitting ---
+add_executable(test_spill_split
+        tests/TestSpillSplit.cpp
+        src/parser/Parser.cpp
+        src/graph/WebBuilder.cpp
+        src/graph/InterferenceGraph.cpp
+        src/graph/InterferenceGraphBuilder.cpp
+        src/allocation/RegisterAllocator.cpp
+        src/allocation/SpillAllocator.cpp
+        src/allocation/SplitAllocator.cpp
+        src/utils/OutputWriter.cpp
+)
+
+# --- Test: Free Algorithm ---
+add_executable(test_free
+        tests/TestFree.cpp
+        src/parser/Parser.cpp
+        src/graph/WebBuilder.cpp
+        src/graph/InterferenceGraph.cpp
+        src/graph/InterferenceGraphBuilder.cpp
+        src/allocation/RegisterAllocator.cpp
+        src/allocation/SpillAllocator.cpp
+        src/allocation/SplitAllocator.cpp
+        src/allocation/FreeAllocator.cpp
+        src/utils/OutputWriter.cpp
+)

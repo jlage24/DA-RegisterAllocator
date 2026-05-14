@@ -1,0 +1,7 @@
+<map id="InterferenceGraph::emitUndirectedDOT" name="InterferenceGraph::emitUndirectedDOT">
+<area shape="rect" id="Node000001" title="Emits an undirected DOT file for visualization." alt="" coords="269,5,420,45"/>
+<area shape="rect" id="Node000002" href="$main_8cpp.html#a6f2ec5534d901f40115d74729d9f1bad" title=" " alt="" coords="108,13,221,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="256,28,222,28,222,23,256,23"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,60,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>

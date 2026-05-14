@@ -1,0 +1,21 @@
+<map id="InterferenceGraphBuilder::build" name="InterferenceGraphBuilder::build">
+<area shape="rect" id="Node000001" title="Builds and returns the interference graph." alt="" coords="5,117,192,157"/>
+<area shape="rect" id="Node000002" href="$classInterferenceGraph.html#a087472ecf5f6d4485e60cf9ee01df67c" title="Adds an undirected interference edge between two webs." alt="" coords="259,53,408,93"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,114,246,94,247,99,173,119"/>
+<area shape="rect" id="Node000006" href="$classInterferenceGraph.html#acf7811367f211046350496c0531bf556" title="Adds a web as a node in the graph." alt="" coords="259,117,407,157"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="192,134,245,134,245,139,192,139"/>
+<area shape="rect" id="Node000008" href="$classInterferenceGraphBuilder.html#aff3f9a7762f43269ee1636768e353a04" title="Checks if two webs interfere." alt="" coords="240,181,427,221"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="173,154,247,175,246,180,172,159"/>
+<area shape="rect" id="Node000003" href="$classGraph.html#ac61af3aafe6277215f5a3b3cc7d58ce2" title=" " alt="" coords="480,5,652,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="407,53,498,31,499,36,409,58"/>
+<area shape="rect" id="Node000004" href="$classInterferenceGraph.html#a487ffdc48856f65566d041b5251d9ec1" title="Checks if an undirected edge exists between two webs. @complexity O(degree(a))" alt="" coords="492,55,640,95"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="408,71,479,72,479,77,408,76"/>
+<area shape="rect" id="Node000005" href="$classGraph.html#a8b7b7465fbfd562e2a469f90a437ab75" title=" " alt="" coords="705,63,888,88"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="640,73,691,73,691,78,640,78"/>
+<area shape="rect" id="Node000007" href="$classGraph.html#a00be284ea2be3b3d0f0d2e493b70245b" title=" " alt="" coords="475,124,657,149"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="407,134,461,134,461,139,407,139"/>
+<area shape="rect" id="Node000009" href="$structWeb.html#af86b5d38f6e73769deb8c5711853e61d" title="Returns the set of all program lines covered by this web. @complexity O(R * L) where R = number of ra..." alt="" coords="512,180,620,205"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="427,195,498,192,498,198,427,200"/>
+<area shape="rect" id="Node000010" href="$structWeb.html#ad6f81afd639db976de235db40d66b4f4" title="Returns the marker (&#39;+&#39;, &#39;&#45;&#39;, &#39; &#39;) for a given line, or &#39; &#39; if not present." alt="" coords="507,229,625,255"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="427,215,494,227,493,232,426,220"/>
+</map>

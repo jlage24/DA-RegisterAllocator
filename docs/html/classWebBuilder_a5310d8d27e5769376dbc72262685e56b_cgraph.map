@@ -1,0 +1,5 @@
+<map id="WebBuilder::rangesOverlap" name="WebBuilder::rangesOverlap">
+<area shape="rect" id="Node000001" title="Checks if two individual live ranges should trigger a merge." alt="" coords="5,5,204,31"/>
+<area shape="rect" id="Node000002" href="$structLiveRange.html#a9149bb62559bee1c74ce9e96425b376e" title="Returns the set of plain line numbers in this range." alt="" coords="252,5,395,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,15,238,15,238,21,205,21"/>
+</map>

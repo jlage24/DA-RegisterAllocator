@@ -1,0 +1,21 @@
+<map id="InterferenceGraph::addWeb" name="InterferenceGraph::addWeb">
+<area shape="rect" id="Node000001" title="Adds a web as a node in the graph." alt="" coords="877,74,1025,114"/>
+<area shape="rect" id="Node000002" href="$classInterferenceGraphBuilder.html#afaf05052bdcb9437d0481f2c1410770c" title="Builds and returns the interference graph." alt="" coords="643,74,829,114"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="863,97,829,97,829,91,863,91"/>
+<area shape="rect" id="Node000003" href="$classFreeAllocator.html#a80a480f3bf991d10c54e645f0409087e" title="Runs the adaptive split&#45;then&#45;spill allocation." alt="" coords="426,5,594,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="661,72,548,33,550,28,663,67"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html#a074fcfb38f4a1821a57e172369385979" title=" " alt="" coords="269,81,377,107"/>
+<area shape="poly" id="edge10_Node000002_Node000004" title=" " alt="" coords="629,97,378,97,378,91,629,91"/>
+<area shape="rect" id="Node000007" href="$main_8cpp.html#a6f2ec5534d901f40115d74729d9f1bad" title=" " alt="" coords="108,131,221,156"/>
+<area shape="poly" id="edge11_Node000002_Node000007" title=" " alt="" coords="679,122,639,136,595,147,492,159,389,162,296,158,221,152,222,147,296,153,389,156,492,154,594,142,637,131,677,117"/>
+<area shape="rect" id="Node000008" href="$classSplitAllocator.html#a53e60e16bf64c28e1b83df4e6dc0a34a" title="Runs allocation with K web splits." alt="" coords="425,107,595,132"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="629,109,595,112,595,107,629,103"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="463,38,426,52,354,84,352,79,424,48,461,33"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html#a893b7a2a517f7d74317ec618515023a8" title=" " alt="" coords="125,81,205,107"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="256,97,205,97,205,91,256,91"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="270,113,207,133,206,128,268,108"/>
+<area shape="rect" id="Node000006" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,107,60,132"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="112,107,61,117,60,112,111,102"/>
+<area shape="poly" id="edge7_Node000007_Node000006" title=" " alt="" coords="94,133,60,127,61,122,95,128"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="412,109,377,104,378,99,412,103"/>
+</map>

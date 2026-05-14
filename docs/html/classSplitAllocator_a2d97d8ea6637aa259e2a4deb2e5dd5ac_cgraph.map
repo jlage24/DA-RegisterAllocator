@@ -1,0 +1,7 @@
+<map id="SplitAllocator::splitWeb" name="SplitAllocator::splitWeb">
+<area shape="rect" id="Node000001" title="Splits a web into two halves at its midpoint." alt="" coords="5,31,179,56"/>
+<area shape="rect" id="Node000002" href="$structLiveRange.html#a33a2569b7fc6b884544f1f4cd4f5fce5" title="Returns the first line of this range." alt="" coords="227,5,377,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="179,30,213,26,214,31,179,36"/>
+<area shape="rect" id="Node000003" href="$structLiveRange.html#a37992bbfed86ffbdfb2ffc7bab89dcc9" title="Returns the last line of this range." alt="" coords="227,55,377,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="179,51,214,55,214,60,179,56"/>
+</map>
