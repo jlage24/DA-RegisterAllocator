@@ -203,10 +203,11 @@ Here is the caller graph for this function:</div>
 <dl class="section return"><dt>Returns</dt><dd>Vector of <a class="el" href="structLiveRange.html" title="A live range: ordered sequence of line points for one variable.">LiveRange</a> structs (one per input line, before web merging). </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::runtime_error</td><td>on file not found or malformed input. @complexity O(L) where L = total number of line-point tokens in the file. </td></tr>
+    <tr><td class="paramname">std::runtime_error</td><td>on file not found or malformed input. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Time Complexity: O(L) where L = total number of line-point tokens in the file. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Parser_8cpp_source.html#l00042">42</a> of file <a class="el" href="Parser_8cpp_source.html">Parser.cpp</a>.</p>
 <div class="dynheader">
@@ -274,10 +275,11 @@ Here is the caller graph for this function:</div>
 <dl class="section return"><dt>Returns</dt><dd>Populated <a class="el" href="structRegisterConfig.html" title="Configuration loaded from the registers input file.">RegisterConfig</a> struct. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::runtime_error</td><td>on file not found or malformed input. @complexity O(1) — file has constant number of meaningful lines. </td></tr>
+    <tr><td class="paramname">std::runtime_error</td><td>on file not found or malformed input. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>Time Complexity: O(1) — file has constant number of meaningful lines. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="Parser_8cpp_source.html#l00097">97</a> of file <a class="el" href="Parser_8cpp_source.html">Parser.cpp</a>.</p>
 <div class="dynheader">
@@ -369,7 +371,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed May 13 2026 13:04:16 for DA2026 - Register Allocator by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sat May 16 2026 17:10:12 for DA2026 - Register Allocator by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

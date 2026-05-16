@@ -105,7 +105,7 @@ Static Private Member Functions</h2></td></tr>
 <li>If after splitting the halves still have degree &gt;= N, SPILL the problematic half instead.</li>
 </ol>
 <p>More conservative than blind spilling (T2.2) and more targeted than blind splitting (T2.3): only intervenes on webs that actually block coloring, preferring split over spill whenever possible.</p>
-<p>@complexity O(W^2 * L) per iteration, at most W iterations total. W = number of webs, L = average lines per web. </p>
+<dl class="section note"><dt>Note</dt><dd>Time Complexity: O(W^2 * L) per iteration, at most W iterations total. W = number of webs, L = average lines per web. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="FreeAllocator_8h_source.html#l00025">25</a> of file <a class="el" href="FreeAllocator_8h_source.html">FreeAllocator.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
@@ -162,7 +162,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" title="Runs the adaptive split&#45;then&#45;spill allocation." alt="" coords="5,164,173,189"/>
 <area shape="rect" href="classRegisterAllocator.html#ac905df54d3a76d35e5e2d3fb9cfd37a7" title="Runs the basic greedy coloring algorithm." alt="" coords="285,157,427,197"/>
 <area shape="poly" title=" " alt="" coords="173,174,271,174,271,179,173,179"/>
-<area shape="rect" href="classInterferenceGraph.html#a10ea52e270fb586a23b58792e149b0f4" title="Returns the effective degree of a web node, counting only active neighbors. @complexity O(degree(webI..." alt="" coords="791,89,939,129"/>
+<area shape="rect" href="classInterferenceGraph.html#a10ea52e270fb586a23b58792e149b0f4" title="Returns the effective degree of a web node, counting only active neighbors." alt="" coords="791,89,939,129"/>
 <area shape="poly" title=" " alt="" coords="135,161,221,142,374,122,526,111,666,106,777,105,777,110,666,111,527,116,374,128,222,147,136,166"/>
 <area shape="rect" href="classInterferenceGraphBuilder.html#afaf05052bdcb9437d0481f2c1410770c" title="Builds and returns the interference graph." alt="" coords="263,329,449,369"/>
 <area shape="poly" title=" " alt="" coords="112,187,314,319,311,323,109,192"/>
@@ -189,12 +189,12 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="450,357,525,366,525,371,449,362"/>
 <area shape="rect" href="classGraph.html#ac61af3aafe6277215f5a3b3cc7d58ce2" title=" " alt="" coords="779,319,951,344"/>
 <area shape="poly" title=" " alt="" coords="707,319,765,322,765,328,707,324"/>
-<area shape="rect" href="classInterferenceGraph.html#a487ffdc48856f65566d041b5251d9ec1" title="Checks if an undirected edge exists between two webs. @complexity O(degree(a))" alt="" coords="791,254,939,294"/>
+<area shape="rect" href="classInterferenceGraph.html#a487ffdc48856f65566d041b5251d9ec1" title="Checks if an undirected edge exists between two webs." alt="" coords="791,254,939,294"/>
 <area shape="poly" title=" " alt="" coords="706,300,777,287,778,293,707,306"/>
 <area shape="poly" title=" " alt="" coords="937,251,1011,231,1012,236,938,257"/>
 <area shape="rect" href="classGraph.html#a00be284ea2be3b3d0f0d2e493b70245b" title=" " alt="" coords="773,467,956,492"/>
 <area shape="poly" title=" " alt="" coords="707,453,766,462,765,467,706,458"/>
-<area shape="rect" href="structWeb.html#af86b5d38f6e73769deb8c5711853e61d" title="Returns the set of all program lines covered by this web. @complexity O(R * L) where R = number of ra..." alt="" coords="811,368,919,393"/>
+<area shape="rect" href="structWeb.html#af86b5d38f6e73769deb8c5711853e61d" title="Returns the set of all program lines covered by this web." alt="" coords="811,368,919,393"/>
 <area shape="poly" title=" " alt="" coords="726,378,797,378,797,383,726,383"/>
 <area shape="rect" href="structWeb.html#ad6f81afd639db976de235db40d66b4f4" title="Returns the marker (&#39;+&#39;, &#39;&#45;&#39;, &#39; &#39;) for a given line, or &#39; &#39; if not present." alt="" coords="805,417,924,443"/>
 <area shape="poly" title=" " alt="" coords="726,398,792,412,791,417,725,403"/>
@@ -268,7 +268,7 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="classFreeAllocator_adbe1899fa3fb46ce18fc3e17381f20f3_cgraph.png" border="0" usemap="#aclassFreeAllocator_adbe1899fa3fb46ce18fc3e17381f20f3_cgraph" alt=""/></div>
 <map name="aclassFreeAllocator_adbe1899fa3fb46ce18fc3e17381f20f3_cgraph" id="aclassFreeAllocator_adbe1899fa3fb46ce18fc3e17381f20f3_cgraph">
 <area shape="rect" title="Returns the webId of the active web with highest degree &gt;= N. Returns &#45;1 if all active webs have degr..." alt="" coords="5,13,275,38"/>
-<area shape="rect" href="classInterferenceGraph.html#a10ea52e270fb586a23b58792e149b0f4" title="Returns the effective degree of a web node, counting only active neighbors. @complexity O(degree(webI..." alt="" coords="323,5,471,45"/>
+<area shape="rect" href="classInterferenceGraph.html#a10ea52e270fb586a23b58792e149b0f4" title="Returns the effective degree of a web node, counting only active neighbors." alt="" coords="323,5,471,45"/>
 <area shape="poly" title=" " alt="" coords="275,23,309,23,309,28,275,28"/>
 <area shape="rect" href="classGraph.html#a8b7b7465fbfd562e2a469f90a437ab75" title=" " alt="" coords="519,13,701,38"/>
 <area shape="poly" title=" " alt="" coords="471,23,505,23,505,28,471,28"/>
@@ -389,7 +389,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed May 13 2026 13:04:16 for DA2026 - Register Allocator by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sat May 16 2026 17:10:12 for DA2026 - Register Allocator by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

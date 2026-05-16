@@ -1,6 +1,6 @@
 <map id="InterferenceGraphBuilder::interferes" name="InterferenceGraphBuilder::interferes">
 <area shape="rect" id="Node000001" title="Checks if two webs interfere." alt="" coords="5,23,192,63"/>
-<area shape="rect" id="Node000002" href="$structWeb.html#af86b5d38f6e73769deb8c5711853e61d" title="Returns the set of all program lines covered by this web. @complexity O(R * L) where R = number of ra..." alt="" coords="245,5,353,31"/>
+<area shape="rect" id="Node000002" href="$structWeb.html#af86b5d38f6e73769deb8c5711853e61d" title="Returns the set of all program lines covered by this web." alt="" coords="245,5,353,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,29,231,24,232,29,192,34"/>
 <area shape="rect" id="Node000003" href="$structWeb.html#ad6f81afd639db976de235db40d66b4f4" title="Returns the marker (&#39;+&#39;, &#39;&#45;&#39;, &#39; &#39;) for a given line, or &#39; &#39; if not present." alt="" coords="240,55,359,80"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="192,52,227,56,226,61,192,57"/>

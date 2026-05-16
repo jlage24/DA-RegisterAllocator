@@ -31,7 +31,7 @@
 <area shape="poly" id="edge18_Node000008_Node000015" title=" " alt="" coords="502,155,609,129,610,134,504,160"/>
 <area shape="rect" id="Node000010" href="$classRegisterAllocator.html#a4abe8825d4cd7dfb1730548a69ed24e0" title=" " alt="" coords="1155,45,1297,85"/>
 <area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="743,150,768,137,782,125,790,112,800,99,816,88,857,72,899,60,986,48,1069,46,1141,50,1141,56,1069,51,986,53,900,66,858,77,819,92,804,103,795,115,786,128,771,142,745,155"/>
-<area shape="rect" id="Node000012" href="$classInterferenceGraph.html#a10ea52e270fb586a23b58792e149b0f4" title="Returns the effective degree of a web node, counting only active neighbors. @complexity O(degree(webI..." alt="" coords="1152,182,1300,222"/>
+<area shape="rect" id="Node000012" href="$classInterferenceGraph.html#a10ea52e270fb586a23b58792e149b0f4" title="Returns the effective degree of a web node, counting only active neighbors." alt="" coords="1152,182,1300,222"/>
 <area shape="poly" id="edge13_Node000009_Node000012" title=" " alt="" coords="748,174,1139,195,1138,200,748,179"/>
 <area shape="rect" id="Node000013" href="$classRegisterAllocator.html#adddf33cce647834d88d5f82100985386" title=" " alt="" coords="881,102,1023,142"/>
 <area shape="poly" id="edge15_Node000009_Node000013" title=" " alt="" coords="747,157,867,135,868,140,748,162"/>
@@ -56,12 +56,12 @@
 <area shape="poly" id="edge28_Node000017_Node000023" title=" " alt="" coords="709,374,759,404,818,432,846,441,845,446,816,436,757,408,707,379"/>
 <area shape="rect" id="Node000019" href="$classGraph.html#ac61af3aafe6277215f5a3b3cc7d58ce2" title=" " alt="" coords="1140,268,1312,293"/>
 <area shape="poly" id="edge23_Node000018_Node000019" title=" " alt="" coords="1026,320,1151,294,1152,299,1027,325"/>
-<area shape="rect" id="Node000020" href="$classInterferenceGraph.html#a487ffdc48856f65566d041b5251d9ec1" title="Checks if an undirected edge exists between two webs. @complexity O(degree(a))" alt="" coords="1152,318,1300,358"/>
+<area shape="rect" id="Node000020" href="$classInterferenceGraph.html#a487ffdc48856f65566d041b5251d9ec1" title="Checks if an undirected edge exists between two webs." alt="" coords="1152,318,1300,358"/>
 <area shape="poly" id="edge24_Node000018_Node000020" title=" " alt="" coords="1027,335,1138,335,1138,341,1027,341"/>
 <area shape="poly" id="edge25_Node000020_Node000011" title=" " alt="" coords="1290,316,1316,302,1368,263,1409,223,1413,227,1372,267,1319,307,1292,320"/>
 <area shape="rect" id="Node000022" href="$classGraph.html#a00be284ea2be3b3d0f0d2e493b70245b" title=" " alt="" coords="1135,389,1317,415"/>
 <area shape="poly" id="edge27_Node000021_Node000022" title=" " alt="" coords="1026,399,1121,399,1121,405,1026,405"/>
-<area shape="rect" id="Node000024" href="$structWeb.html#af86b5d38f6e73769deb8c5711853e61d" title="Returns the set of all program lines covered by this web. @complexity O(R * L) where R = number of ra..." alt="" coords="1172,447,1280,472"/>
+<area shape="rect" id="Node000024" href="$structWeb.html#af86b5d38f6e73769deb8c5711853e61d" title="Returns the set of all program lines covered by this web." alt="" coords="1172,447,1280,472"/>
 <area shape="poly" id="edge29_Node000023_Node000024" title=" " alt="" coords="1046,461,1158,458,1158,464,1046,466"/>
 <area shape="rect" id="Node000025" href="$structWeb.html#ad6f81afd639db976de235db40d66b4f4" title="Returns the marker (&#39;+&#39;, &#39;&#45;&#39;, &#39; &#39;) for a given line, or &#39; &#39; if not present." alt="" coords="1167,496,1285,521"/>
 <area shape="poly" id="edge30_Node000023_Node000025" title=" " alt="" coords="1046,478,1154,495,1153,500,1045,483"/>

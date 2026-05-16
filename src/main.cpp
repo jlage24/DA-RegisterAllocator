@@ -38,6 +38,21 @@ static InterferenceGraph runAllocation(std::vector<Web> &webs,
     auto ig = InterferenceGraphBuilder::build(webs);
     if (config.algorithm == "basic") {
         RegisterAllocator::allocateBasic(ig, config.numRegisters);
+        
+        // If there was at least one spill, it failed. Send everything to memory.
+        bool basicFailed = false;
+        for (auto &[id, web] : ig.webs) {
+            if (web.color == -2) { // COLOR_SPILLED
+                basicFailed = true; break;
+            }
+        }
+        
+        if (basicFailed) {
+            for (auto &[id, web] : ig.webs) {
+                web.color = -2; // Force all to COLOR_SPILLED
+                web.active = false;
+            }
+        }
     } else if (config.algorithm == "spilling") {
         SpillAllocator::allocate(ig, config.numRegisters, config.algorithmParam);
     } else if (config.algorithm == "splitting") {
@@ -99,7 +114,12 @@ static void runInteractive() {
                 webs=WebBuilder::buildWebs(ranges); websBuilt=true; graphBuilt=allocated=false;
                 std::cout<<"Built "<<webs.size()<<" web(s).\n";
                 for(auto &w:webs){std::cout<<"  web"<<w.webId<<" ["<<w.varName<<"]: ";
-                    for(int l:w.allLines()) std::cout<<l<<" "; std::cout<<"\n";} break;
+                    for (int l : w.allLines()) {
+                        std::cout << l << " ";
+                    }
+                    std::cout << "\n";
+                } 
+                break;
             }
             case 4: {
                 if(!websBuilt){std::cerr<<"Build webs first.\n";break;}

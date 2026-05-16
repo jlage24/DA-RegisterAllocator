@@ -33,20 +33,20 @@ public:
      * @param webIdA First web.
      * @param webIdB Second web.
      * @note No-op if edge already exists or if a == b.
-     * @complexity O(degree(a) + degree(b))
+     * @note Time Complexity: O(degree(a) + degree(b))
      */
     void addUndirectedEdge(int webIdA, int webIdB);
 
     /**
      * @brief Checks if an undirected edge exists between two webs.
-     * @complexity O(degree(a))
+     * @note Time Complexity: O(degree(a))
      */
     bool hasEdge(int webIdA, int webIdB) const;
 
     /**
      * @brief Returns the effective degree of a web node,
      *        counting only active neighbors.
-     * @complexity O(degree(webId))
+     * @note Time Complexity: O(degree(webId))
      */
     int degree(int webId) const;
 

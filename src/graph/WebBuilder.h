@@ -17,7 +17,7 @@
  * The merging is iterative: after each fusion, the loop restarts because
  * a new merged group may now share lines with another group.
  *
- * @complexity O(R^3 * L) worst case, where R = number of live ranges
+ * @note Time Complexity: O(R^3 * L) worst case, where R = number of live ranges
  *             and L = average lines per range. Acceptable for typical
  *             compiler inputs where R and L are small.
  */

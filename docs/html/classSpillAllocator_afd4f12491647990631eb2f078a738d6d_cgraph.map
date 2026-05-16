@@ -6,7 +6,7 @@
 <area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="174,120,208,125,207,130,173,126"/>
 <area shape="rect" id="Node000003" href="$classRegisterAllocator.html#a4abe8825d4cd7dfb1730548a69ed24e0" title=" " alt="" coords="435,5,577,45"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="374,60,421,47,423,52,376,65"/>
-<area shape="rect" id="Node000005" href="$classInterferenceGraph.html#a10ea52e270fb586a23b58792e149b0f4" title="Returns the effective degree of a web node, counting only active neighbors. @complexity O(degree(webI..." alt="" coords="628,63,776,103"/>
+<area shape="rect" id="Node000005" href="$classInterferenceGraph.html#a10ea52e270fb586a23b58792e149b0f4" title="Returns the effective degree of a web node, counting only active neighbors." alt="" coords="628,63,776,103"/>
 <area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="376,80,614,80,614,85,376,85"/>
 <area shape="rect" id="Node000006" href="$classRegisterAllocator.html#adddf33cce647834d88d5f82100985386" title=" " alt="" coords="435,120,577,160"/>
 <area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="376,100,423,114,421,119,374,105"/>

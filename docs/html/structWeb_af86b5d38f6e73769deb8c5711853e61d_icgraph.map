@@ -1,5 +1,5 @@
 <map id="Web::allLines" name="Web::allLines">
-<area shape="rect" id="Node000001" title="Returns the set of all program lines covered by this web. @complexity O(R * L) where R = number of ra..." alt="" coords="1112,81,1220,107"/>
+<area shape="rect" id="Node000001" title="Returns the set of all program lines covered by this web." alt="" coords="1112,81,1220,107"/>
 <area shape="rect" id="Node000002" href="$classInterferenceGraphBuilder.html#aff3f9a7762f43269ee1636768e353a04" title="Checks if two webs interfere." alt="" coords="877,74,1064,114"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1098,97,1064,97,1064,91,1098,91"/>
 <area shape="rect" id="Node000003" href="$classInterferenceGraphBuilder.html#afaf05052bdcb9437d0481f2c1410770c" title="Builds and returns the interference graph." alt="" coords="643,74,829,114"/>

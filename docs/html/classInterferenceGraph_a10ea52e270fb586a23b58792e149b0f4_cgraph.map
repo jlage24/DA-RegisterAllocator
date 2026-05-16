@@ -1,5 +1,5 @@
 <map id="InterferenceGraph::degree" name="InterferenceGraph::degree">
-<area shape="rect" id="Node000001" title="Returns the effective degree of a web node, counting only active neighbors. @complexity O(degree(webI..." alt="" coords="5,5,153,45"/>
+<area shape="rect" id="Node000001" title="Returns the effective degree of a web node, counting only active neighbors." alt="" coords="5,5,153,45"/>
 <area shape="rect" id="Node000002" href="$classGraph.html#a8b7b7465fbfd562e2a469f90a437ab75" title=" " alt="" coords="201,13,384,38"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,23,188,23,188,28,154,28"/>
 </map>

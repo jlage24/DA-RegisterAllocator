@@ -30,7 +30,7 @@ struct Web {
 
     /**
      * @brief Returns the set of all program lines covered by this web.
-     * @complexity O(R * L) where R = number of ranges, L = avg lines per range
+     * @note Time Complexity: O(R * L) where R = number of ranges, L = avg lines per range
      */
     std::set<int> allLines() const {
         std::set<int> s;

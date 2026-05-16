@@ -1,5 +1,5 @@
 <map id="InterferenceGraph::hasEdge" name="InterferenceGraph::hasEdge">
-<area shape="rect" id="Node000001" title="Checks if an undirected edge exists between two webs. @complexity O(degree(a))" alt="" coords="1075,74,1223,114"/>
+<area shape="rect" id="Node000001" title="Checks if an undirected edge exists between two webs." alt="" coords="1075,74,1223,114"/>
 <area shape="rect" id="Node000002" href="$classInterferenceGraph.html#a087472ecf5f6d4485e60cf9ee01df67c" title="Adds an undirected interference edge between two webs." alt="" coords="877,74,1027,114"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1061,97,1027,97,1027,91,1061,91"/>
 <area shape="rect" id="Node000003" href="$classInterferenceGraphBuilder.html#afaf05052bdcb9437d0481f2c1410770c" title="Builds and returns the interference graph." alt="" coords="643,74,829,114"/>

@@ -38,7 +38,7 @@ public:
      * @param filename Path to the ranges file.
      * @return Vector of LiveRange structs (one per input line, before web merging).
      * @throws std::runtime_error on file not found or malformed input.
-     * @complexity O(L) where L = total number of line-point tokens in the file.
+     * @note Time Complexity: O(L) where L = total number of line-point tokens in the file.
      */
     static std::vector<LiveRange> parseLiveRanges(const std::string &filename);
 
@@ -47,7 +47,7 @@ public:
      * @param filename Path to the registers file.
      * @return Populated RegisterConfig struct.
      * @throws std::runtime_error on file not found or malformed input.
-     * @complexity O(1) — file has constant number of meaningful lines.
+     * @note Time Complexity: O(1) — file has constant number of meaningful lines.
      */
     static RegisterConfig parseRegisters(const std::string &filename);
 

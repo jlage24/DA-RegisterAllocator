@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Adds an undirected interference edge between two webs." alt="" coords="5,27,155,67"/>
 <area shape="rect" id="Node000002" href="$classGraph.html#ac61af3aafe6277215f5a3b3cc7d58ce2" title=" " alt="" coords="203,5,375,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,34,189,29,190,35,155,39"/>
-<area shape="rect" id="Node000003" href="$classInterferenceGraph.html#a487ffdc48856f65566d041b5251d9ec1" title="Checks if an undirected edge exists between two webs. @complexity O(degree(a))" alt="" coords="215,55,363,95"/>
+<area shape="rect" id="Node000003" href="$classInterferenceGraph.html#a487ffdc48856f65566d041b5251d9ec1" title="Checks if an undirected edge exists between two webs." alt="" coords="215,55,363,95"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="155,55,201,61,201,66,155,60"/>
 <area shape="rect" id="Node000004" href="$classGraph.html#a8b7b7465fbfd562e2a469f90a437ab75" title=" " alt="" coords="423,63,605,88"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="363,73,409,73,409,78,363,78"/>

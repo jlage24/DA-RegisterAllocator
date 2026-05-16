@@ -19,7 +19,7 @@
  *   than blind splitting (T2.3): only intervenes on webs that actually
  *   block coloring, preferring split over spill whenever possible.
  *
- * @complexity O(W^2 * L) per iteration, at most W iterations total.
+ * @note Time Complexity: O(W^2 * L) per iteration, at most W iterations total.
  *             W = number of webs, L = average lines per web.
  */
 class FreeAllocator {

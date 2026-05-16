@@ -16,7 +16,7 @@
  *   with marker '+', they do NOT interfere — the use of A happens before
  *   the definition of B at that line.
  *
- * @complexity O(W^2 * L) where W = number of webs, L = avg lines per web.
+ * @note Time Complexity: O(W^2 * L) where W = number of webs, L = avg lines per web.
  */
 class InterferenceGraphBuilder {
 public:
