@@ -1,0 +1,5 @@
+<map id="WebBuilder::rangesOverlap" name="WebBuilder::rangesOverlap">
+<area shape="rect" id="Node000001" title="Checks if two individual live ranges should trigger a merge." alt="" coords="241,5,440,31"/>
+<area shape="rect" id="Node000002" href="$classWebBuilder.html#a9551e12d2c821b34f6dc65e073881128" title="Checks if two groups of live ranges should be merged." alt="" coords="5,5,193,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,21,193,21,193,15,228,15"/>
+</map>

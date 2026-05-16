@@ -1,0 +1,19 @@
+<map id="Parser::trim" name="Parser::trim">
+<area shape="rect" id="Node000001" title="Strips leading/trailing whitespace from a string." alt="" coords="713,56,811,81"/>
+<area shape="rect" id="Node000002" href="$classParser.html#ae62c5cc0fc2cde1f06f08e146662d90c" title="Parses a single line&#45;point token like &quot;7+&quot;, &quot;8&quot;, &quot;10&#45;&quot;." alt="" coords="499,5,665,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="702,55,627,33,629,28,704,50"/>
+<area shape="rect" id="Node000003" href="$classParser.html#aaa2a7c05d308722513ddcd289f39c124" title="Parses a live ranges file." alt="" coords="269,56,451,81"/>
+<area shape="poly" id="edge7_Node000001_Node000003" title=" " alt="" coords="700,71,451,71,451,66,700,66"/>
+<area shape="rect" id="Node000007" href="$classParser.html#ac66217262c83b088c603c935fb8f20f4" title="Parses a register configuration file." alt="" coords="277,105,443,131"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="700,79,444,110,443,105,699,74"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="513,36,417,59,416,53,511,31"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html#a893b7a2a517f7d74317ec618515023a8" title=" " alt="" coords="125,56,205,81"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="255,71,205,71,205,66,255,66"/>
+<area shape="rect" id="Node000006" href="$main_8cpp.html#a6f2ec5534d901f40115d74729d9f1bad" title=" " alt="" coords="108,105,221,131"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="297,87,216,108,215,103,295,82"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,81,60,107"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="112,81,61,92,60,86,111,76"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="94,108,60,101,61,96,95,103"/>
+<area shape="poly" id="edge9_Node000007_Node000004" title=" " alt="" coords="295,105,204,81,206,76,297,99"/>
+<area shape="poly" id="edge10_Node000007_Node000006" title=" " alt="" coords="263,121,222,121,222,115,263,115"/>
+</map>

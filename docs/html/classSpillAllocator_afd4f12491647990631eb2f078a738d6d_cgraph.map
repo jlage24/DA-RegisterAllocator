@@ -1,0 +1,19 @@
+<map id="SpillAllocator::allocate" name="SpillAllocator::allocate">
+<area shape="rect" id="Node000001" title="Runs allocation with K intentional pre&#45;spills." alt="" coords="5,99,173,125"/>
+<area shape="rect" id="Node000002" href="$classRegisterAllocator.html#ac905df54d3a76d35e5e2d3fb9cfd37a7" title="Runs the basic greedy coloring algorithm." alt="" coords="233,63,375,103"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="173,98,219,92,219,97,174,103"/>
+<area shape="rect" id="Node000008" href="$classSpillAllocator.html#a01b4bb05b5a65f2b991801f787597e36" title="Selects and marks the K webs with the most lines as spilled." alt="" coords="221,127,387,153"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="174,120,208,125,207,130,173,126"/>
+<area shape="rect" id="Node000003" href="$classRegisterAllocator.html#a4abe8825d4cd7dfb1730548a69ed24e0" title=" " alt="" coords="435,5,577,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="374,60,421,47,423,52,376,65"/>
+<area shape="rect" id="Node000005" href="$classInterferenceGraph.html#a10ea52e270fb586a23b58792e149b0f4" title="Returns the effective degree of a web node, counting only active neighbors. @complexity O(degree(webI..." alt="" coords="628,63,776,103"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="376,80,614,80,614,85,376,85"/>
+<area shape="rect" id="Node000006" href="$classRegisterAllocator.html#adddf33cce647834d88d5f82100985386" title=" " alt="" coords="435,120,577,160"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="376,100,423,114,421,119,374,105"/>
+<area shape="rect" id="Node000004" href="$classGraph.html#a8b7b7465fbfd562e2a469f90a437ab75" title=" " alt="" coords="827,42,961,67"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="578,28,813,46,812,51,577,33"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="776,69,813,64,813,69,777,74"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="574,117,619,104,621,109,576,123"/>
+<area shape="rect" id="Node000007" href="$classGraph.html#a923b43995f81ad9319bbc81a1e433e64" title=" " alt="" coords="625,127,779,153"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="578,137,611,137,611,143,578,143"/>
+</map>

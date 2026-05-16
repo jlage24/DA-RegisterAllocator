@@ -1,0 +1,7 @@
+<map id="OutputWriter::printToConsole" name="OutputWriter::printToConsole">
+<area shape="rect" id="Node000001" title="Prints allocation result to stdout." alt="" coords="5,5,216,31"/>
+<area shape="rect" id="Node000002" href="$classOutputWriter.html#a2301af18cb15d788df7306ac62786876" title="Core writer — outputs to any ostream." alt="" coords="264,5,411,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,15,250,15,250,21,216,21"/>
+<area shape="rect" id="Node000003" href="$classOutputWriter.html#ae32955443148b7078bf139e6fd8a67e8" title="Formats a single web&#39;s ranges as &quot;1+,2,3,4&#45;&quot;." alt="" coords="459,5,645,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="411,15,445,15,445,21,411,21"/>
+</map>

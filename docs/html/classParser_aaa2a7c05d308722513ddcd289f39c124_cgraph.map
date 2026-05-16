@@ -1,0 +1,8 @@
+<map id="Parser::parseLiveRanges" name="Parser::parseLiveRanges">
+<area shape="rect" id="Node000001" title="Parses a live ranges file." alt="" coords="5,31,187,56"/>
+<area shape="rect" id="Node000002" href="$classParser.html#ae62c5cc0fc2cde1f06f08e146662d90c" title="Parses a single line&#45;point token like &quot;7+&quot;, &quot;8&quot;, &quot;10&#45;&quot;." alt="" coords="235,5,401,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,30,221,26,221,32,187,36"/>
+<area shape="rect" id="Node000003" href="$classParser.html#a0232860b9febbaa3f08a9ff939fc73f1" title="Strips leading/trailing whitespace from a string." alt="" coords="449,31,547,56"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="187,41,436,41,436,46,187,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="402,27,436,32,435,37,401,32"/>
+</map>

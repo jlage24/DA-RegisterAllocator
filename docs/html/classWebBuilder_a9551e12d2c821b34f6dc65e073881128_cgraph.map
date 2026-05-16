@@ -1,0 +1,7 @@
+<map id="WebBuilder::shouldMerge" name="WebBuilder::shouldMerge">
+<area shape="rect" id="Node000001" title="Checks if two groups of live ranges should be merged." alt="" coords="5,5,193,31"/>
+<area shape="rect" id="Node000002" href="$classWebBuilder.html#a5310d8d27e5769376dbc72262685e56b" title="Checks if two individual live ranges should trigger a merge." alt="" coords="241,5,440,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,15,228,15,228,21,194,21"/>
+<area shape="rect" id="Node000003" href="$structLiveRange.html#a9149bb62559bee1c74ce9e96425b376e" title="Returns the set of plain line numbers in this range." alt="" coords="488,5,631,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="441,15,474,15,474,21,441,21"/>
+</map>

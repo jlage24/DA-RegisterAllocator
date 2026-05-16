@@ -1,0 +1,7 @@
+<map id="FreeAllocator::splitWeb" name="FreeAllocator::splitWeb">
+<area shape="rect" id="Node000001" title="Splits a web into two halves, updates the webs vector, and returns the IDs of the two new webs." alt="" coords="5,31,177,56"/>
+<area shape="rect" id="Node000002" href="$structLiveRange.html#a33a2569b7fc6b884544f1f4cd4f5fce5" title="Returns the first line of this range." alt="" coords="225,5,376,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,30,211,26,212,31,178,36"/>
+<area shape="rect" id="Node000003" href="$structLiveRange.html#a37992bbfed86ffbdfb2ffc7bab89dcc9" title="Returns the last line of this range." alt="" coords="226,55,375,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="178,51,212,55,212,60,178,56"/>
+</map>

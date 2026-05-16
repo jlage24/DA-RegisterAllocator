@@ -1,0 +1,15 @@
+<map id="OutputWriter::write" name="OutputWriter::write">
+<area shape="rect" id="Node000001" title="Core writer — outputs to any ostream." alt="" coords="528,31,675,56"/>
+<area shape="rect" id="Node000002" href="$classOutputWriter.html#a561d054f6f88e52dd607300fe857a1d7" title="Prints allocation result to stdout." alt="" coords="269,5,480,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="514,36,480,32,480,27,515,31"/>
+<area shape="rect" id="Node000005" href="$classOutputWriter.html#abb5307acb7a1f7fe11a74ffafa165ee8" title="Writes allocation result to a file." alt="" coords="283,55,467,80"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="515,55,467,60,467,55,514,50"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html#a6f2ec5534d901f40115d74729d9f1bad" title=" " alt="" coords="108,5,221,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="256,21,222,21,222,15,256,15"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,60,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="95,34,61,41,60,36,94,29"/>
+<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="306,54,219,33,220,28,308,49"/>
+<area shape="rect" id="Node000006" href="$main_8cpp.html#a893b7a2a517f7d74317ec618515023a8" title=" " alt="" coords="125,55,205,80"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="269,70,205,70,205,65,269,65"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="111,60,60,51,61,46,112,55"/>
+</map>

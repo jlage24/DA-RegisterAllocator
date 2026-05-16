@@ -1,0 +1,42 @@
+<map id="src/graph/InterferenceGraph.h" name="src/graph/InterferenceGraph.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="982,5,1198,31"/>
+<area shape="rect" id="Node000002" href="$FreeAllocator_8h.html" title=" " alt="" coords="1219,86,1430,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1138,32,1291,83,1290,89,1136,37"/>
+<area shape="rect" id="Node000005" href="$RegisterAllocator_8h.html" title=" " alt="" coords="491,86,727,111"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1007,35,679,89,678,83,1006,30"/>
+<area shape="rect" id="Node000009" href="$SpillAllocator_8h.html" title=" " alt="" coords="750,86,961,111"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="1044,37,890,89,889,83,1042,32"/>
+<area shape="rect" id="Node000010" href="$SplitAllocator_8h.html" title=" " alt="" coords="985,86,1195,111"/>
+<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="1093,44,1093,86,1087,86,1087,44"/>
+<area shape="rect" id="Node000011" href="$InterferenceGraph_8cpp.html" title=" " alt="" coords="1651,86,1881,111"/>
+<area shape="poly" id="edge16_Node000001_Node000011" title=" " alt="" coords="1212,28,1640,76,1693,83,1692,89,1639,81,1211,34"/>
+<area shape="rect" id="Node000012" href="$InterferenceGraphBuilder_8h.html" title=" " alt="" coords="263,79,467,119"/>
+<area shape="poly" id="edge17_Node000001_Node000012" title=" " alt="" coords="969,31,741,52,478,81,468,83,467,77,478,76,740,47,968,26"/>
+<area shape="rect" id="Node000014" href="$OutputWriter_8h.html" title=" " alt="" coords="1455,86,1627,111"/>
+<area shape="poly" id="edge23_Node000001_Node000014" title=" " alt="" coords="1174,30,1442,76,1482,83,1481,89,1442,81,1173,36"/>
+<area shape="rect" id="Node000003" href="$FreeAllocator_8cpp.html" title=" " alt="" coords="1009,174,1235,199"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1286,119,1151,176,1149,171,1284,114"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html" title=" " alt="" coords="1259,174,1364,199"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="1323,125,1316,174,1311,173,1318,124"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="692,111,1054,171,1053,177,691,116"/>
+<area shape="poly" id="edge9_Node000005_Node000004" title=" " alt="" coords="696,111,738,116,881,129,993,134,1105,143,1247,164,1277,171,1275,177,1245,169,1104,148,993,140,881,134,738,121,696,116"/>
+<area shape="rect" id="Node000006" href="$RegisterAllocator_8cpp.html" title=" " alt="" coords="483,174,734,199"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="611,125,611,173,606,173,606,125"/>
+<area shape="rect" id="Node000007" href="$SpillAllocator_8cpp.html" title=" " alt="" coords="233,174,459,199"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="561,118,382,176,380,171,559,113"/>
+<area shape="rect" id="Node000008" href="$SplitAllocator_8cpp.html" title=" " alt="" coords="758,174,985,199"/>
+<area shape="poly" id="edge8_Node000005_Node000008" title=" " alt="" coords="658,113,837,171,835,176,656,118"/>
+<area shape="poly" id="edge12_Node000009_Node000004" title=" " alt="" coords="938,111,1247,164,1275,171,1274,177,1245,169,937,116"/>
+<area shape="poly" id="edge11_Node000009_Node000007" title=" " alt="" coords="774,116,414,177,413,171,773,111"/>
+<area shape="poly" id="edge15_Node000010_Node000004" title=" " alt="" coords="1134,114,1283,171,1281,176,1132,119"/>
+<area shape="poly" id="edge14_Node000010_Node000008" title=" " alt="" coords="1049,119,902,176,900,171,1047,114"/>
+<area shape="poly" id="edge18_Node000012_Node000003" title=" " alt="" coords="481,116,627,132,740,141,853,149,997,164,1051,171,1050,177,996,169,853,154,740,146,626,137,480,122"/>
+<area shape="poly" id="edge22_Node000012_Node000004" title=" " alt="" coords="481,116,598,127,697,131,866,133,1034,138,1132,147,1247,164,1277,171,1276,177,1245,169,1131,152,1034,143,866,138,697,137,597,132,481,122"/>
+<area shape="poly" id="edge19_Node000012_Node000007" title=" " alt="" coords="360,133,351,174,346,173,355,132"/>
+<area shape="poly" id="edge20_Node000012_Node000008" title=" " alt="" coords="481,117,804,171,803,177,480,122"/>
+<area shape="rect" id="Node000013" href="$InterferenceGraphBuilder_8cpp.html" title=" " alt="" coords="5,167,209,207"/>
+<area shape="poly" id="edge21_Node000012_Node000013" title=" " alt="" coords="296,126,165,169,163,164,294,121"/>
+<area shape="poly" id="edge24_Node000014_Node000004" title=" " alt="" coords="1498,119,1343,176,1341,171,1496,114"/>
+<area shape="rect" id="Node000015" href="$OutputWriter_8cpp.html" title=" " alt="" coords="1447,174,1634,199"/>
+<area shape="poly" id="edge25_Node000014_Node000015" title=" " alt="" coords="1543,125,1543,173,1538,173,1538,125"/>
+</map>
