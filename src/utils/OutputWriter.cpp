@@ -28,7 +28,7 @@ std::string OutputWriter::formatWeb(const Web &web) {
 }
 
 void OutputWriter::write(const InterferenceGraph &ig, std::ostream &out) {
-    // --- Section 1: webs ---
+    // Webs
     out << "webs: " << ig.webs.size() << "\n";
     for (auto &[id, web] : ig.webs)
         out << "web" << id << ": " << formatWeb(web) << "\n";
@@ -39,7 +39,7 @@ void OutputWriter::write(const InterferenceGraph &ig, std::ostream &out) {
         if (!web.isSpilled()) { allSpilled = false; break; }
 
     if (allSpilled && !ig.webs.empty()) {
-        // Infeasible — output registers: 0 and warn on console
+        // Infeasible —> output registers: 0 and warn on console
         std::cerr << "WARNING: Register allocation not possible with the provided number of registers. All webs assigned to memory.\n";
         out << "registers: 0\n";
         for (auto &[id, web] : ig.webs)

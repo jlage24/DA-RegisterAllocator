@@ -114,7 +114,7 @@ InterferenceGraph FreeAllocator::allocate(std::vector<Web> &webs,
         auto [idA, idB] = splitWeb(webs, congested, nextId);
 
         if (idA == -1) {
-            // Unsplittable (1 line) — spill directly
+            // Unsplittable (1 line) —> spill directly
             std::cout << "[free] web" << congested << " unsplittable — spilling.\n";
             for (auto &w : webs)
                 if (w.webId == congested) { w.color = COLOR_SPILLED; break; }
@@ -128,7 +128,7 @@ InterferenceGraph FreeAllocator::allocate(std::vector<Web> &webs,
             bool helpedB = igCheck.degree(idB) < numRegisters;
 
             if (!helpedA && !helpedB) {
-                // Split didn't help — undo by spilling both halves
+                // Split didn't help —> undo by spilling both halves
                 std::cout << "[free] Split didn't reduce interference — spilling halves.\n";
                 for (auto &w : webs)
                     if (w.webId == idA || w.webId == idB) w.color = COLOR_SPILLED;

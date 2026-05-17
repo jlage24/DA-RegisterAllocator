@@ -152,11 +152,11 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        }</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">if</span> (candidate != -1) {</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <span class="comment">// Found a simplifiable node — push and deactivate</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <span class="comment">// Found a simplifiable node —&gt; push and deactivate</span></div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            stk.push(candidate);</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            ig.<a class="code hl_variable" href="classInterferenceGraph.html#a9e30cd897f81fba8fe9a6cc8cae70efb">webs</a>.at(candidate).active = <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="comment">// All active nodes have degree &gt;= N — must spill one</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="comment">// All active nodes have degree &gt;= N —&gt; must spill one</span></div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <span class="keywordtype">int</span> spill = <a class="code hl_function" href="classRegisterAllocator.html#adddf33cce647834d88d5f82100985386">pickSpillCandidate</a>(ig);</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keywordflow">if</span> (spill == -1) <span class="keywordflow">break</span>; <span class="comment">// safety</span></div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            ig.<a class="code hl_variable" href="classInterferenceGraph.html#a9e30cd897f81fba8fe9a6cc8cae70efb">webs</a>.at(spill).color  = <a class="code hl_variable" href="Web_8h.html#ad4a0c8f031965298eacf0a9a6606e1d8">COLOR_SPILLED</a>;</div>
@@ -186,7 +186,7 @@ $(document).ready(function() { init_codefold(0); });
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 16 2026 17:10:12 for DA2026 - Register Allocator by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sun May 17 2026 12:45:02 for DA2026 - Register Allocator by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

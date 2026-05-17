@@ -9,7 +9,7 @@ bool InterferenceGraphBuilder::interferes(const Web &a, const Web &b) {
     for (int line : linesA) {
         if (!linesB.count(line)) continue;
 
-        // Both webs cover this line — check the special non-interference case:
+        // Both webs cover this line -> check the special non-interference case:
         // If one web ends here with '-' and the other starts here with '+'
         // they do not interfere (use happens before def at the same line)
         char markerA = a.markerAt(line);

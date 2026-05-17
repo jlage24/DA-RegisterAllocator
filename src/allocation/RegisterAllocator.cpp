@@ -63,11 +63,11 @@ void RegisterAllocator::allocateBasic(InterferenceGraph &ig, int numRegisters) {
         }
 
         if (candidate != -1) {
-            // Found a simplifiable node — push and deactivate
+            // Found a simplifiable node —> push and deactivate
             stk.push(candidate);
             ig.webs.at(candidate).active = false;
         } else {
-            // All active nodes have degree >= N — must spill one
+            // All active nodes have degree >= N —> must spill one
             int spill = pickSpillCandidate(ig);
             if (spill == -1) break; // safety
             ig.webs.at(spill).color  = COLOR_SPILLED;

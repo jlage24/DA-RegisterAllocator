@@ -54,7 +54,7 @@ void InterferenceGraph::emitUndirectedDOT(const std::string &filename) const {
     }
     f << "\n";
 
-    // Print edges (undirected — only once per pair)
+    // Print edges (undirected —> only once per pair)
     for (auto v : getVertexSet()) {
         int a = v->getInfo();
         for (auto &e : v->getAdj()) {

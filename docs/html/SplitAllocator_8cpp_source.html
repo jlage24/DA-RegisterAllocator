@@ -135,7 +135,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                                            <span class="keywordtype">int</span> numRegisters, <span class="keywordtype">int</span> numSplits) {</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    numSplits = std::min(numSplits, (<span class="keywordtype">int</span>)webs.size());</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment">// Sort by line count desc — always split the biggest first</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment">// Sort by line count desc —&gt; always split the biggest first</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">auto</span> getBiggest = [](<span class="keyword">const</span> std::vector&lt;Web&gt; &amp;ws, <span class="keyword">const</span> std::set&lt;int&gt; &amp;alreadySplit) -&gt; <span class="keywordtype">int</span> {</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">int</span> best = -1; <span class="keywordtype">size_t</span> bestSize = 0;</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;w : ws) {</div>
@@ -214,7 +214,7 @@ $(document).ready(function() { init_codefold(0); });
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat May 16 2026 17:10:12 for DA2026 - Register Allocator by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+Generated on Sun May 17 2026 12:45:02 for DA2026 - Register Allocator by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
 </small></address>
 </body>
 </html>

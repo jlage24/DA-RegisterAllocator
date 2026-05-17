@@ -48,7 +48,7 @@ InterferenceGraph SplitAllocator::allocate(std::vector<Web> &webs,
                                             int numRegisters, int numSplits) {
     numSplits = std::min(numSplits, (int)webs.size());
 
-    // Sort by line count desc — always split the biggest first
+    // Sort by line count desc —> always split the biggest first
     auto getBiggest = [](const std::vector<Web> &ws, const std::set<int> &alreadySplit) -> int {
         int best = -1; size_t bestSize = 0;
         for (auto &w : ws) {
